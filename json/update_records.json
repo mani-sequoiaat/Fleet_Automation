@@ -1,0 +1,92 @@
+[
+  {
+    "license_plate_number": "ADM0081",
+    "license_plate_state": "NJ",
+    "year": "2026",
+    "make": "Audi",
+    "model": "Jetta",
+    "color": "delta",
+    "vin": "1FEZET8LEJHN68816"
+  },
+  {
+    "license_plate_number": "ADM0082",
+    "license_plate_state": "NM",
+    "year": "2026",
+    "make": "Dodge",
+    "model": "Alpine",
+    "color": "delta",
+    "vin": "BVLFLSK5UXCP82956"
+  },
+  {
+    "license_plate_number": "ADM0083",
+    "license_plate_state": "NY",
+    "year": "2026",
+    "make": "Smart",
+    "model": "Model X",
+    "color": "delta",
+    "vin": "EBETUECRTLVD60348"
+  },
+  {
+    "license_plate_number": "ADM0084",
+    "license_plate_state": "NC",
+    "year": "2023",
+    "make": "Land Rover",
+    "model": "2",
+    "color": "delta",
+    "vin": "U54ZTS9GKPAM77823"
+  },
+  {
+    "license_plate_number": "ADM0085",
+    "license_plate_state": "ND",
+    "year": "2024",
+    "make": "Jaguar",
+    "model": "LeBaron",
+    "color": "delta",
+    "vin": "15A1701S52BV17248"
+  },
+  {
+    "license_plate_number": "ADM0086",
+    "license_plate_state": "OH",
+    "year": "2023",
+    "make": "Bugatti",
+    "model": "Alpine",
+    "color": "delta",
+    "vin": "DPLPTMW2ZJJ910917"
+  },
+  {
+    "license_plate_number": "ADM0087",
+    "license_plate_state": "OK",
+    "year": "2024",
+    "make": "Fiat",
+    "model": "Corvette",
+    "color": "delta",
+    "vin": "UUSVGBX5F9R509572"
+  },
+  {
+    "license_plate_number": "ADM0088",
+    "license_plate_state": "OR",
+    "year": "2026",
+    "make": "Hyundai",
+    "model": "Model S",
+    "color": "delta",
+    "vin": "Y4ATTHHB69HY10645"
+  },
+  {
+    "license_plate_number": "ADM0089",
+    "license_plate_state": "PA",
+    "year": "2025",
+    "make": "Mitsubishi",
+    "model": "Durango",
+    "color": "delta",
+    "vin": "EDCUXHXEX7UY87416"
+  },
+  {
+    "license_plate_number": "ADM0090",
+    "license_plate_state": "RI",
+    "year": "2023",
+    "make": "Honda",
+    "model": "CX-9",
+    "color": "delta",
+    "vin": "86NKEZ8CF7EM32185"
+  }
+]

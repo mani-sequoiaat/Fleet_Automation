@@ -1,0 +1,402 @@
+[
+  {
+    "license_plate_number": "ADN0001",
+    "license_plate_state": "AL"
+  },
+  {
+    "license_plate_number": "ADN0002",
+    "license_plate_state": "AK"
+  },
+  {
+    "license_plate_number": "ADN0003",
+    "license_plate_state": "AZ"
+  },
+  {
+    "license_plate_number": "ADN0004",
+    "license_plate_state": "AR"
+  },
+  {
+    "license_plate_number": "ADN0005",
+    "license_plate_state": "CA"
+  },
+  {
+    "license_plate_number": "ADN0006",
+    "license_plate_state": "CO"
+  },
+  {
+    "license_plate_number": "ADN0007",
+    "license_plate_state": "CT"
+  },
+  {
+    "license_plate_number": "ADN0008",
+    "license_plate_state": "DE"
+  },
+  {
+    "license_plate_number": "ADN0009",
+    "license_plate_state": "FL"
+  },
+  {
+    "license_plate_number": "ADN0010",
+    "license_plate_state": "GA"
+  },
+  {
+    "license_plate_number": "ADN0011",
+    "license_plate_state": "HI"
+  },
+  {
+    "license_plate_number": "ADN0012",
+    "license_plate_state": "ID"
+  },
+  {
+    "license_plate_number": "ADN0013",
+    "license_plate_state": "IL"
+  },
+  {
+    "license_plate_number": "ADN0014",
+    "license_plate_state": "IN"
+  },
+  {
+    "license_plate_number": "ADN0015",
+    "license_plate_state": "IA"
+  },
+  {
+    "license_plate_number": "ADN0016",
+    "license_plate_state": "KS"
+  },
+  {
+    "license_plate_number": "ADN0017",
+    "license_plate_state": "KY"
+  },
+  {
+    "license_plate_number": "ADN0018",
+    "license_plate_state": "LA"
+  },
+  {
+    "license_plate_number": "ADN0019",
+    "license_plate_state": "ME"
+  },
+  {
+    "license_plate_number": "ADN0020",
+    "license_plate_state": "MD"
+  },
+  {
+    "license_plate_number": "ADN0021",
+    "license_plate_state": "MA"
+  },
+  {
+    "license_plate_number": "ADN0022",
+    "license_plate_state": "MI"
+  },
+  {
+    "license_plate_number": "ADN0023",
+    "license_plate_state": "MN"
+  },
+  {
+    "license_plate_number": "ADN0024",
+    "license_plate_state": "MS"
+  },
+  {
+    "license_plate_number": "ADN0025",
+    "license_plate_state": "MO"
+  },
+  {
+    "license_plate_number": "ADN0026",
+    "license_plate_state": "MT"
+  },
+  {
+    "license_plate_number": "ADN0027",
+    "license_plate_state": "NE"
+  },
+  {
+    "license_plate_number": "ADN0028",
+    "license_plate_state": "NV"
+  },
+  {
+    "license_plate_number": "ADN0029",
+    "license_plate_state": "NH"
+  },
+  {
+    "license_plate_number": "ADN0030",
+    "license_plate_state": "NJ"
+  },
+  {
+    "license_plate_number": "ADN0031",
+    "license_plate_state": "NM"
+  },
+  {
+    "license_plate_number": "ADN0032",
+    "license_plate_state": "NY"
+  },
+  {
+    "license_plate_number": "ADN0033",
+    "license_plate_state": "NC"
+  },
+  {
+    "license_plate_number": "ADN0034",
+    "license_plate_state": "ND"
+  },
+  {
+    "license_plate_number": "ADN0035",
+    "license_plate_state": "OH"
+  },
+  {
+    "license_plate_number": "ADN0036",
+    "license_plate_state": "OK"
+  },
+  {
+    "license_plate_number": "ADN0037",
+    "license_plate_state": "OR"
+  },
+  {
+    "license_plate_number": "ADN0038",
+    "license_plate_state": "PA"
+  },
+  {
+    "license_plate_number": "ADN0039",
+    "license_plate_state": "RI"
+  },
+  {
+    "license_plate_number": "ADN0040",
+    "license_plate_state": "SC"
+  },
+  {
+    "license_plate_number": "ADN0041",
+    "license_plate_state": "SD"
+  },
+  {
+    "license_plate_number": "ADN0042",
+    "license_plate_state": "TN"
+  },
+  {
+    "license_plate_number": "ADN0043",
+    "license_plate_state": "TX"
+  },
+  {
+    "license_plate_number": "ADN0044",
+    "license_plate_state": "UT"
+  },
+  {
+    "license_plate_number": "ADN0045",
+    "license_plate_state": "VT"
+  },
+  {
+    "license_plate_number": "ADN0046",
+    "license_plate_state": "VA"
+  },
+  {
+    "license_plate_number": "ADN0047",
+    "license_plate_state": "WA"
+  },
+  {
+    "license_plate_number": "ADN0048",
+    "license_plate_state": "WV"
+  },
+  {
+    "license_plate_number": "ADN0049",
+    "license_plate_state": "WI"
+  },
+  {
+    "license_plate_number": "ADN0050",
+    "license_plate_state": "WY"
+  },
+  {
+    "license_plate_number": "ADN0051",
+    "license_plate_state": "PR"
+  },
+  {
+    "license_plate_number": "ADN0052",
+    "license_plate_state": "AL"
+  },
+  {
+    "license_plate_number": "ADN0053",
+    "license_plate_state": "AK"
+  },
+  {
+    "license_plate_number": "ADN0054",
+    "license_plate_state": "AZ"
+  },
+  {
+    "license_plate_number": "ADN0055",
+    "license_plate_state": "AR"
+  },
+  {
+    "license_plate_number": "ADN0056",
+    "license_plate_state": "CA"
+  },
+  {
+    "license_plate_number": "ADN0057",
+    "license_plate_state": "CO"
+  },
+  {
+    "license_plate_number": "ADN0058",
+    "license_plate_state": "CT"
+  },
+  {
+    "license_plate_number": "ADN0059",
+    "license_plate_state": "DE"
+  },
+  {
+    "license_plate_number": "ADN0060",
+    "license_plate_state": "FL"
+  },
+  {
+    "license_plate_number": "ADN0061",
+    "license_plate_state": "GA"
+  },
+  {
+    "license_plate_number": "ADN0062",
+    "license_plate_state": "HI"
+  },
+  {
+    "license_plate_number": "ADN0063",
+    "license_plate_state": "ID"
+  },
+  {
+    "license_plate_number": "ADN0064",
+    "license_plate_state": "IL"
+  },
+  {
+    "license_plate_number": "ADN0065",
+    "license_plate_state": "IN"
+  },
+  {
+    "license_plate_number": "ADN0066",
+    "license_plate_state": "IA"
+  },
+  {
+    "license_plate_number": "ADN0067",
+    "license_plate_state": "KS"
+  },
+  {
+    "license_plate_number": "ADN0068",
+    "license_plate_state": "KY"
+  },
+  {
+    "license_plate_number": "ADN0069",
+    "license_plate_state": "LA"
+  },
+  {
+    "license_plate_number": "ADN0070",
+    "license_plate_state": "ME"
+  },
+  {
+    "license_plate_number": "ADN0071",
+    "license_plate_state": "MD"
+  },
+  {
+    "license_plate_number": "ADN0072",
+    "license_plate_state": "MA"
+  },
+  {
+    "license_plate_number": "ADN0073",
+    "license_plate_state": "MI"
+  },
+  {
+    "license_plate_number": "ADN0074",
+    "license_plate_state": "MN"
+  },
+  {
+    "license_plate_number": "ADN0075",
+    "license_plate_state": "MS"
+  },
+  {
+    "license_plate_number": "ADN0076",
+    "license_plate_state": "MO"
+  },
+  {
+    "license_plate_number": "ADN0077",
+    "license_plate_state": "MT"
+  },
+  {
+    "license_plate_number": "ADN0078",
+    "license_plate_state": "NE"
+  },
+  {
+    "license_plate_number": "ADN0079",
+    "license_plate_state": "NV"
+  },
+  {
+    "license_plate_number": "ADN0080",
+    "license_plate_state": "NH"
+  },
+  {
+    "license_plate_number": "ADN0081",
+    "license_plate_state": "NJ"
+  },
+  {
+    "license_plate_number": "ADN0082",
+    "license_plate_state": "NM"
+  },
+  {
+    "license_plate_number": "ADN0083",
+    "license_plate_state": "NY"
+  },
+  {
+    "license_plate_number": "ADN0084",
+    "license_plate_state": "NC"
+  },
+  {
+    "license_plate_number": "ADN0085",
+    "license_plate_state": "ND"
+  },
+  {
+    "license_plate_number": "ADN0086",
+    "license_plate_state": "OH"
+  },
+  {
+    "license_plate_number": "ADN0087",
+    "license_plate_state": "OK"
+  },
+  {
+    "license_plate_number": "ADN0088",
+    "license_plate_state": "OR"
+  },
+  {
+    "license_plate_number": "ADN0089",
+    "license_plate_state": "PA"
+  },
+  {
+    "license_plate_number": "ADN0090",
+    "license_plate_state": "RI"
+  },
+  {
+    "license_plate_number": "ADN0091",
+    "license_plate_state": "SC"
+  },
+  {
+    "license_plate_number": "ADN0092",
+    "license_plate_state": "SD"
+  },
+  {
+    "license_plate_number": "ADN0093",
+    "license_plate_state": "TN"
+  },
+  {
+    "license_plate_number": "ADN0094",
+    "license_plate_state": "TX"
+  },
+  {
+    "license_plate_number": "ADN0095",
+    "license_plate_state": "UT"
+  },
+  {
+    "license_plate_number": "ADN0096",
+    "license_plate_state": "VT"
+  },
+  {
+    "license_plate_number": "ADN0097",
+    "license_plate_state": "VA"
+  },
+  {
+    "license_plate_number": "ADN0098",
+    "license_plate_state": "WA"
+  },
+  {
+    "license_plate_number": "ADN0099",
+    "license_plate_state": "WV"
+  },
+  {
+    "license_plate_number": "ADN0100",
+    "license_plate_state": "WI"
+  }
+]

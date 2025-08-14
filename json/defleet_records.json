@@ -1,0 +1,92 @@
+[
+  {
+    "license_plate_number": "ADM0091",
+    "license_plate_state": "SC",
+    "year": "2026",
+    "make": "Chevrolet",
+    "model": "XC90",
+    "color": "mint green",
+    "vin": "3DZZ89FLD6JE36421"
+  },
+  {
+    "license_plate_number": "ADM0092",
+    "license_plate_state": "SD",
+    "year": "2024",
+    "make": "Kia",
+    "model": "Fortwo",
+    "color": "orange",
+    "vin": "K82S7ZMLLVCY24570"
+  },
+  {
+    "license_plate_number": "ADM0093",
+    "license_plate_state": "TN",
+    "year": "2026",
+    "make": "Tata",
+    "model": "Mercielago",
+    "color": "violet",
+    "vin": "35XU13432RTH94857"
+  },
+  {
+    "license_plate_number": "ADM0094",
+    "license_plate_state": "TX",
+    "year": "2025",
+    "make": "Mercedes Benz",
+    "model": "F-150",
+    "color": "salmon",
+    "vin": "H4F4XM15PEHS29402"
+  },
+  {
+    "license_plate_number": "ADM0095",
+    "license_plate_state": "UT",
+    "year": "2024",
+    "make": "Suzuki",
+    "model": "Volt",
+    "color": "ivory",
+    "vin": "RTZLYLUNNNNH64713"
+  },
+  {
+    "license_plate_number": "ADM0096",
+    "license_plate_state": "VT",
+    "year": "2024",
+    "make": "Tata",
+    "model": "Element",
+    "color": "red",
+    "vin": "CPRJXW34U8KA77548"
+  },
+  {
+    "license_plate_number": "ADM0097",
+    "license_plate_state": "VA",
+    "year": "2025",
+    "make": "Toyota",
+    "model": "Roadster",
+    "color": "maroon",
+    "vin": "3PJ9MZY02LX817089"
+  },
+  {
+    "license_plate_number": "ADM0098",
+    "license_plate_state": "WA",
+    "year": "2025",
+    "make": "Peugeot",
+    "model": "Prius",
+    "color": "silver",
+    "vin": "XW7YT1M5BCNN04020"
+  },
+  {
+    "license_plate_number": "ADM0099",
+    "license_plate_state": "WV",
+    "year": "2023",
+    "make": "Chevrolet",
+    "model": "Altima",
+    "color": "orchid",
+    "vin": "DPFYPTBBKEP319685"
+  },
+  {
+    "license_plate_number": "ADM0100",
+    "license_plate_state": "WI",
+    "year": "2026",
+    "make": "Audi",
+    "model": "1",
+    "color": "tan",
+    "vin": "AF72X15M5JV562024"
+  }
+]

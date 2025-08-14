@@ -1,0 +1,10 @@
+{
+  "dependencies": {
+  "@azure/identity": "^4.10.2",
+  "csv-parse": "^6.1.0",
+  "dotenv": "^17.2.1",
+  "pg": "^8.16.3",
+  "jest": "^29.7.0"
+}
+
+}
