@@ -1,3 +1,21 @@
-SELECT COUNT(*) 
-FROM "FleetAgency".b_fleet 
+SELECT brand,
+ody_vehicle_id_number,
+license_plate_number,
+license_plate_state,
+year,
+make,
+model,
+color,
+vin,
+location_group,
+location_code,
+location_name,
+address_1,
+address_2,
+city,
+state,
+zip,
+phone_number,
+vehicle_erac
+FROM "FleetAgency".b_fleet
 WHERE batch_id = $1;

@@ -8,19 +8,30 @@ const normalize = val => (val === null || val === undefined ? '' : String(val).t
 describe('[ SILVER FLEET ERROR TABLE TEST SUITES ]', () => {
   let bronzeBatchId;
   let errorExpectedJson;
+  let dbRecords;
 
   beforeAll(async () => {
     await initializeBatchIds();
     bronzeBatchId = getBatchIds().bronzeBatchId;
-    errorExpectedJson = loadJson('error_records.json'); 
+    errorExpectedJson = loadJson('error_records.json');
+
+    if (!bronzeBatchId) throw new Error('No error batch ID found');
+    dbRecords = await fetchFleetRecordsForbronzeerror(bronzeBatchId);
+
+    if (!dbRecords.length) {
+      console.warn('⚠️ No silver fleet error records found for this batch');
+    } else {
+      console.log(`✅ ${dbRecords.length} silver fleet error records found`);
+    }
   });
 
-  it('Error records in silver fleet error table', async () => {
-    if (!bronzeBatchId) throw new Error('No error batch ID found');
+  // Test 1: Record count matches expected JSON
+  it('Error records count matches expected JSON', () => {
+    expect(dbRecords.length).toBe(errorExpectedJson.length);
+  });
 
-    const dbRecords = await fetchFleetRecordsForbronzeerror(bronzeBatchId);
-    expect(dbRecords.length).toBe(errorExpectedJson.length); 
-
+  // Test 2: All expected error records exist in DB
+  it('All expected error records exist in s_fleet_error table', () => {
     errorExpectedJson.forEach(expected => {
       const match = dbRecords.find(r =>
         normalize(r.brand) === normalize(expected.brand) &&
@@ -45,10 +56,9 @@ describe('[ SILVER FLEET ERROR TABLE TEST SUITES ]', () => {
       );
 
       if (!match) {
-        console.error(' No match found for expected error record:', expected);
+        console.error('⚠️ No match found for expected error record:', expected);
       }
-
-      expect(match).toBeDefined(); 
+      expect(match).toBeDefined();
     });
   });
 });

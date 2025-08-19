@@ -1,4 +1,4 @@
-SELECT DISTINCT ON (sfd.license_plate_number, sfd.license_plate_state)
+SELECT --DISTINCT ON (sfd.license_plate_number, sfd.license_plate_state)
   sfd.*
 FROM "FleetRegistration".registrations_delta sfd
 WHERE sfd.registration_end_date IS NOT NULL 

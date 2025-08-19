@@ -10,18 +10,41 @@ function normalize(val) {
 describe('[ UPDATE TABLE TEST SUITES ]', () => {
   let updateBatchId;
   let updateExpectedJson;
+  let dbRecords;
 
   beforeAll(async () => {
     await initializeBatchIds();
     updateBatchId = getBatchIds().updateBatchId;
-    updateExpectedJson = loadJson('update_records.json');
-  });
-
-  it('Update: Record count matches JSON length and records match', async () => {
     if (!updateBatchId) throw new Error('No update batch ID found');
 
-    const dbRecords = await fetchFleetRecordsForSilverDeltaupdate(updateBatchId);
+    updateExpectedJson = loadJson('update_records.json') || [];
+    dbRecords = await fetchFleetRecordsForSilverDeltaupdate(updateBatchId);
+  });
+
+  // Test 1: Compare record counts
+  it('Record count in s_fleet_delta_update matches expected JSON', () => {
     expect(dbRecords.length).toBe(updateExpectedJson.length);
+  });
+
+  // Test 2: Validate required columns exist
+  it('All required columns exist in s_fleet_delta_update and JSON records', () => {
+    const requiredColumns = [
+      'license_plate_number', 'license_plate_state', 'year', 'make',
+      'model', 'color', 'vin'
+    ];
+
+    dbRecords.forEach(r => {
+      requiredColumns.forEach(col => expect(r).toHaveProperty(col));
+    });
+
+    updateExpectedJson.forEach(r => {
+      requiredColumns.forEach(col => expect(r).toHaveProperty(col));
+    });
+  });
+
+  // Test 3: Compare record values column by column
+  it('s_fleet_delta_update records match expected JSON values column by column', () => {
+    const unmatched = [];
 
     updateExpectedJson.forEach(expected => {
       const match = dbRecords.find(r =>
@@ -34,10 +57,14 @@ describe('[ UPDATE TABLE TEST SUITES ]', () => {
         normalize(r.vin) === normalize(expected.vin)
       );
 
-      if (!match) {
-        console.error('No matching record found for:', expected);
-      }
-      expect(match).toBeDefined();
+      if (!match) unmatched.push(expected);
     });
+
+    if (unmatched.length > 0) {
+      console.error('❌ Unmatched expected records:');
+      console.table(unmatched);
+    }
+
+    expect(unmatched.length).toBe(0);
   });
 });

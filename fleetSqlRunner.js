@@ -1,64 +1,34 @@
-require('dotenv').config(); 
-
-const { DefaultAzureCredential } = require('@azure/identity');
-const { Client } = require('pg');
 const fs = require('fs');
 const path = require('path');
-
-const credential = new DefaultAzureCredential();
-
-// Load values from .env
-const server = process.env.AZURE_PG_HOST;
-const database = process.env.AZURE_PG_DATABASE;
-const username = process.env.AZURE_PG_USERNAME;
+const { createClient } = require('./dbClient'); // only this one
 
 function readSQL(fileName) {
   return fs.readFileSync(path.join(__dirname, 'sql', fileName), 'utf-8');
 }
 
-async function createClient() {
-  const tokenResponse = await credential.getToken("https://ossrdbms-aad.database.windows.net");
-  return new Client({
-    host: server,
-    database: database,
-    user: username,
-    password: tokenResponse.token,
-    port: 5432,
-    ssl: { rejectUnauthorized: false }
-  });
+// Generic function to run queries safely
+async function fetchBatchRecords(sqlFile, batchId) {
+  const client = await createClient(); // already connected
+  try {
+    const query = readSQL(sqlFile);
+    const result = batchId ? await client.query(query, [batchId]) : await client.query(query);
+    return result.rows;
+  } finally {
+    await client.end(); // disconnect after each query
+  }
 }
 
+
+// Specific batch functions
 async function fetchLatestFleetFile() {
-  const client = await createClient();
-  await client.connect();
-  const query = readSQL('01_latest_EM_fleet_file.sql');
-  const result = await client.query(query);
-  await client.end();
-  return result.rows;
+  return fetchBatchRecords('01_latest_EM_fleet_file.sql');
 }
 
 async function fetchBatchesByFileId(fileId) {
   if (!fileId) throw new Error('File ID not provided');
-  const client = await createClient();
-  await client.connect();
-  const query = readSQL('02_batches_by_file_id.sql');
-  const result = await client.query(query, [fileId]);
-  await client.end();
-  return result.rows;
+  return fetchBatchRecords('02_batches_by_file_id.sql', fileId);
 }
 
-// Generic function for batch queries
-async function fetchBatchRecords(sqlFile, batchId) {
-  if (!batchId) return [];
-  const client = await createClient();
-  await client.connect();
-  const query = readSQL(sqlFile);
-  const result = await client.query(query, [batchId]);
-  await client.end();
-  return result.rows;
-}
-
-// Specific batch functions
 async function fetchFleetRecordsForbronze(batchId) { return fetchBatchRecords('03_b_fleet.sql', batchId); }
 async function fetchFleetRecordsForbronzeerror(batchId) { return fetchBatchRecords('04_s_fleet_error.sql', batchId); }
 async function fetchValidFleetRecordsForSilverDelta(batchId) { return fetchBatchRecords('05_s_fleet.sql', batchId); }

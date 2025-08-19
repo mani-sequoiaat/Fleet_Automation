@@ -1,8 +1,15 @@
-WITH
-valid_records AS (
+WITH valid_records AS (
     SELECT
+        sf.brand,
+        sf.ody_vehicle_id_number,
         sf.license_plate_state,
-        sf.license_plate_number
+        sf.license_plate_number,
+        sf.year,
+        sf.model,
+        sf.make,
+        sf.color,
+        sf.vin,
+        sf.vehicle_erac
     FROM "FleetAgency".s_fleet sf
     WHERE sf.batch_id = $1
       AND sf.license_plate_number IS NOT NULL
@@ -13,18 +20,22 @@ valid_records AS (
       AND CHAR_LENGTH(sf.license_plate_number) < 12
       AND sf.license_plate_number ~ '^[A-Za-z0-9 -]*$'
       AND sf.license_plate_state ~ '^[A-Za-z]+$'
-),
-record_counts AS (
-    SELECT
-        license_plate_state,
-        license_plate_number,
-        COUNT(*) OVER (
-            PARTITION BY license_plate_state, license_plate_number
-        ) AS total_count
-    FROM valid_records
 )
-SELECT
-    license_plate_number,
-    license_plate_state
-FROM record_counts
-WHERE total_count = 1;
+SELECT *
+FROM valid_records;
+
+
+-- SELECT sf.brand,
+--        sf.ody_vehicle_id_number,
+--        sf.license_plate_state,
+--        sf.license_plate_number,
+--        sf.year,
+--        sf.model,
+--        sf.make,
+--        sf.color,
+--        sf.vin,
+--        sf.vehicle_erac
+-- FROM "FleetAgency".s_fleet sf
+-- WHERE batch_id = $1;
+
+--   AND (year IS NULL OR year = '');

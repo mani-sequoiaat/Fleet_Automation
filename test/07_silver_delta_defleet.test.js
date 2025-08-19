@@ -10,18 +10,45 @@ function normalize(val) {
 describe('[ DEFLEET TABLE TEST SUITES ]', () => {
   let defleetBatchId;
   let defleetExpectedJson;
+  let dbRecords;
 
   beforeAll(async () => {
     await initializeBatchIds();
     defleetBatchId = getBatchIds().defleetBatchId;
-    defleetExpectedJson = loadJson('defleet_records.json');
-  });
-
-  it('Defleet: Record count matches JSON length and records match', async () => {
     if (!defleetBatchId) throw new Error('No defleet batch ID found');
 
-    const dbRecords = await fetchFleetRecordsForSilverDeltadefleet(defleetBatchId);
+    defleetExpectedJson = loadJson('defleet_records.json');
+    dbRecords = await fetchFleetRecordsForSilverDeltadefleet(defleetBatchId);
+  });
+
+  // Test 1: Compare record counts
+  it('Record count in s_fleet_delta_defleet matches expected JSON', () => {
     expect(dbRecords.length).toBe(defleetExpectedJson.length);
+  });
+
+  // Test 2: Validate required columns exist
+  it('All required columns exist in s_fleet_delta_defleet and JSON records', () => {
+    const requiredColumns = [
+      'license_plate_number', 'license_plate_state', 'year', 'make',
+      'model', 'color', 'vin'
+    ];
+
+    dbRecords.forEach(r => {
+      requiredColumns.forEach(col => {
+        expect(r).toHaveProperty(col);
+      });
+    });
+
+    defleetExpectedJson.forEach(r => {
+      requiredColumns.forEach(col => {
+        expect(r).toHaveProperty(col);
+      });
+    });
+  });
+
+  // Test 3: Compare record values column by column
+  it('s_fleet_delta_defleet records match expected JSON values column by column', () => {
+    const unmatched = [];
 
     defleetExpectedJson.forEach(expected => {
       const match = dbRecords.find(r =>
@@ -34,10 +61,14 @@ describe('[ DEFLEET TABLE TEST SUITES ]', () => {
         normalize(r.vin) === normalize(expected.vin)
       );
 
-      if (!match) {
-        console.error('No matching record found for:', expected);
-      }
-      expect(match).toBeDefined();
+      if (!match) unmatched.push(expected);
     });
+
+    if (unmatched.length > 0) {
+      console.error('❌ Unmatched expected records:');
+      console.table(unmatched);
+    }
+
+    expect(unmatched.length).toBe(0);
   });
 });
