@@ -41,6 +41,5 @@ INNER JOIN
 WHERE
   sfd.action_to_be_taken_id = 9
   AND f.is_active = FALSE
-  AND f.fleet_end_date IS not NULL and f.fleet_end_date = current_date - INTERVAL '9 days'
-
-    -- AND f.updated_at::DATE = CURRENT_DATE
+  AND f.fleet_end_date IS not NULL and f.fleet_end_date = current_date - INTERVAL '12 days'
+  -- AND f.updated_at::DATE = CURRENT_DATE

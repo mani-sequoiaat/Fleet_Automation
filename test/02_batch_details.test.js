@@ -17,17 +17,17 @@ describe('[ BATCH TABLE TEST SUITES ]', () => {
     if (!Array.isArray(batches)) throw new Error('Failed to fetch batches for latest file.');
   });
 
-  it('Should return an array when fetching batches for the latest file', () => {
+  it('3206: Verify that the what are the batch are created for fleet', () => {
     expect(Array.isArray(batches)).toBe(true);
   });
 
-  it('All fetched batches should have the correct latest file_id', () => {
+  it('1235: Verify batches have the correct latest file_id', () => {
     batches.forEach(batch => {
       expect(batch.file_id).toBe(latestFileId);
     });
   });
 
-  it('All required batch types should exist for the latest file', () => {
+  it('3126: Verify the All required batch types should exist for the latest file', () => {
     const requiredTypes = [
       'bronze to silver',
       'silver to silver delta',
@@ -38,22 +38,16 @@ describe('[ BATCH TABLE TEST SUITES ]', () => {
 
     requiredTypes.forEach(type => {
       const exists = batches.some(b => b.batch_type_name === type);
-      if (!exists) console.warn(` Batch type missing: ${type}`);
       expect(exists).toBe(true);
     });
   });
 
-  it('There should be no duplicate batch types for the latest file', () => {
+  it('3206: Verify There should be no duplicate batch types for the latest file', () => {
     const seen = new Set();
-    const duplicates = [];
+    const duplicates = batches
+      .map(b => b.batch_type_name)
+      .filter(name => seen.has(name) ? true : (seen.add(name), false));
 
-    batches.forEach(b => {
-      if (seen.has(b.batch_type_name)) duplicates.push(b.batch_type_name);
-      else seen.add(b.batch_type_name);
-    });
-
-    if (duplicates.length) console.error(' Duplicate batch types found:', duplicates);
     expect(duplicates.length).toBe(0);
   });
-
 });

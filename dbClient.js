@@ -1,4 +1,4 @@
-require('dotenv').config();
+require('dotenv').config({ debug: false });
 const { DefaultAzureCredential } = require('@azure/identity');
 const { Client } = require('pg');
 
@@ -8,11 +8,13 @@ const server = process.env.AZURE_PG_HOST;
 const database = process.env.AZURE_PG_DATABASE;
 const username = process.env.AZURE_PG_USERNAME;
 
-async function createClient() {
-  const tokenResponse = await credential.getToken(
-    "https://ossrdbms-aad.database.windows.net"
-  );
-  const client = new Client({
+let sharedClient = null;
+
+async function getClient() {
+  if (sharedClient) return sharedClient;
+
+  const tokenResponse = await credential.getToken("https://ossrdbms-aad.database.windows.net");
+  sharedClient = new Client({
     host: server,
     database: database,
     user: username,
@@ -20,8 +22,16 @@ async function createClient() {
     port: 5432,
     ssl: { rejectUnauthorized: false }
   });
-  await client.connect();
-  return client;
+
+  await sharedClient.connect();
+  return sharedClient;
 }
 
-module.exports = { createClient };
+async function closeClient() {
+  if (sharedClient) {
+    await sharedClient.end();
+    sharedClient = null;
+  }
+}
+
+module.exports = { getClient, closeClient };

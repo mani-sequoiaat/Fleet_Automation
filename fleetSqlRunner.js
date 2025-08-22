@@ -1,21 +1,19 @@
 const fs = require('fs');
 const path = require('path');
-const { createClient } = require('./dbClient'); // only this one
+const { getClient } = require('./dbClient');
 
 function readSQL(fileName) {
   return fs.readFileSync(path.join(__dirname, 'sql', fileName), 'utf-8');
 }
 
-// Generic function to run queries safely
+// Generic function to run queries safely (reuses shared client)
 async function fetchBatchRecords(sqlFile, batchId) {
-  const client = await createClient(); // already connected
-  try {
-    const query = readSQL(sqlFile);
-    const result = batchId ? await client.query(query, [batchId]) : await client.query(query);
-    return result.rows;
-  } finally {
-    await client.end(); // disconnect after each query
-  }
+  const client = await getClient();
+  const query = readSQL(sqlFile);
+  const result = batchId
+    ? await client.query(query, [batchId])
+    : await client.query(query);
+  return result.rows;
 }
 
 

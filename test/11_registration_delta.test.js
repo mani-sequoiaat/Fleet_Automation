@@ -1,34 +1,29 @@
 const { loadJson, fetchFleetRecordsForregistrationdelta } = require('../fleet_test_helpers');
 const { initializeBatchIds, getBatchIds } = require('../batchIdResolver');
+
 jest.setTimeout(40000);
 
-// Normalize helper
-function normalize(val) {
-  if (val === null || val === undefined) return '';
-  return val.toString().trim().toUpperCase();
-}
+const normalize = val => (val === null || val === undefined ? '' : String(val).trim().toUpperCase());
 
 describe('[ REGISTRATION DELTA TABLE TEST SUITES ]', () => {
   let infleetBatchId;
-  let infleetExpectedJson;
-  let dbRecords;
+  let infleetExpectedJson = [];
+  let dbRecords = [];
 
   beforeAll(async () => {
     await initializeBatchIds();
     infleetBatchId = getBatchIds().infleetBatchId;
-    infleetExpectedJson = loadJson('infleet_records.json');
-
     if (!infleetBatchId) throw new Error('No infleet batch ID found');
-    dbRecords = await fetchFleetRecordsForregistrationdelta(infleetBatchId);
+
+    infleetExpectedJson = loadJson('infleet_records.json') || [];
+    dbRecords = await fetchFleetRecordsForregistrationdelta(infleetBatchId) || [];
   });
 
-  // Test 1: Record count matches JSON length
-  it('Infleet: Record count matches JSON length', () => {
+  it('3389: Verify the Infleet Record count in registration_delta', () => {
     expect(dbRecords.length).toBe(infleetExpectedJson.length);
   });
 
-  // Test 2: All JSON records exist in DB
-  it('Infleet: All JSON records match DB', () => {
+  it('3215: Verify Infleet records in registration_delta', () => {
     infleetExpectedJson.forEach(expected => {
       const match = dbRecords.find(
         r =>
@@ -43,25 +38,21 @@ describe('[ REGISTRATION DELTA TABLE TEST SUITES ]', () => {
     });
   });
 
-  // Test 3: No null or empty fields for essential columns
-  it('Infleet: No null or empty license_plate_number, state, year, make, model, color', () => {
+  it('3390: Verify Infleet records No null or empty in LPS and LPN fields', () => {
     const invalid = dbRecords.filter(r =>
       !r.license_plate_number || !r.license_plate_state || !r.year || !r.make || !r.model || !r.color
     );
     expect(invalid.length).toBe(0);
   });
 
-  // Test 4: Unique license_plate_number + state combinations
-  it('Infleet: license_plate_number + state combinations are unique', () => {
+  it('3219: Verify infleet records license_plate_number + state combinations are unique', () => {
     const seen = new Set();
-    const duplicates = [];
-    dbRecords.forEach(r => {
+    const duplicates = dbRecords.filter(r => {
       const key = `${normalize(r.license_plate_number)}_${normalize(r.license_plate_state)}`;
-      if (seen.has(key)) duplicates.push(key);
-      else seen.add(key);
+      if (seen.has(key)) return true;
+      seen.add(key);
+      return false;
     });
     expect(duplicates.length).toBe(0);
-  })
   });
-
-
+});

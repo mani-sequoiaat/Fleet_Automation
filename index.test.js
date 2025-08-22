@@ -1,4 +1,4 @@
-
+const { closeClient } = require('./dbClient');
 
 // Suppress console.log unless it's an error
 beforeAll(() => {
@@ -10,7 +10,11 @@ beforeAll(() => {
   };
 });
 
+afterAll(async () => {
+  await closeClient(); // close connection once at end
+});
 
+// Import all test files
 require('./test/01_file_details.test');
 require('./test/02_batch_details.test');
 require('./test/03_bronze_fleet.test');

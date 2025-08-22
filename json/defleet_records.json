@@ -1,92 +1,92 @@
 [
   {
-    "license_plate_number": "ADR0091",
+    "license_plate_number": "ADU0091",
     "license_plate_state": "SC",
-    "year": "2024",
-    "make": "Lamborghini",
-    "model": "LeBaron",
-    "color": "salmon",
-    "vin": "0FVX36ECY4PA31548"
-  },
-  {
-    "license_plate_number": "ADR0092",
-    "license_plate_state": "SD",
     "year": "2026",
-    "make": "Skoda",
-    "model": "Model S",
-    "color": "lavender",
-    "vin": "NMXAME14XYUS19470"
-  },
-  {
-    "license_plate_number": "ADR0093",
-    "license_plate_state": "TN",
-    "year": "2024",
-    "make": "Citroën",
+    "make": "Mitsubishi",
     "model": "Sentra",
     "color": "white",
-    "vin": "1UT60TT488FC99942"
+    "vin": "YPMVF3TTS3B329060"
   },
   {
-    "license_plate_number": "ADR0094",
+    "license_plate_number": "ADU0092",
+    "license_plate_state": "SD",
+    "year": "2026",
+    "make": "Nissan",
+    "model": "Silverado",
+    "color": "green",
+    "vin": "4942B9Z22MV674159"
+  },
+  {
+    "license_plate_number": "ADU0093",
+    "license_plate_state": "TN",
+    "year": "2024",
+    "make": "NIO",
+    "model": "CX-9",
+    "color": "gold",
+    "vin": "NZUGY4F8GDN620000"
+  },
+  {
+    "license_plate_number": "ADU0094",
     "license_plate_state": "TX",
-    "year": "2023",
-    "make": "Fiat",
-    "model": "Prius",
-    "color": "cyan",
-    "vin": "UC8ZJ86GGXT193886"
+    "year": "2024",
+    "make": "Peugeot",
+    "model": "Alpine",
+    "color": "indigo",
+    "vin": "UP072U22JUBM98418"
   },
   {
-    "license_plate_number": "ADR0095",
+    "license_plate_number": "ADU0095",
     "license_plate_state": "UT",
-    "year": "2024",
-    "make": "Bentley",
-    "model": "Model 3",
-    "color": "orange",
-    "vin": "XCZ9585AD1S911711"
+    "year": "2026",
+    "make": "Maserati",
+    "model": "Charger",
+    "color": "blue",
+    "vin": "G85PUX73YMD013856"
   },
   {
-    "license_plate_number": "ADR0096",
+    "license_plate_number": "ADU0096",
     "license_plate_state": "VT",
-    "year": "2024",
-    "make": "Lamborghini",
-    "model": "Corvette",
-    "color": "tan",
-    "vin": "PSSVTP6Y82G888258"
+    "year": "2026",
+    "make": "Kia",
+    "model": "F-150",
+    "color": "plum",
+    "vin": "0D6NL7WE2PD821632"
   },
   {
-    "license_plate_number": "ADR0097",
+    "license_plate_number": "ADU0097",
     "license_plate_state": "VA",
     "year": "2026",
-    "make": "BYD",
-    "model": "Colorado",
-    "color": "teal",
-    "vin": "RLVNXEYZZ8WE83797"
+    "make": "Peugeot",
+    "model": "ATS",
+    "color": "tan",
+    "vin": "JPURMJNDG8A481650"
   },
   {
-    "license_plate_number": "ADR0098",
+    "license_plate_number": "ADU0098",
     "license_plate_state": "WA",
     "year": "2026",
-    "make": "Volvo",
-    "model": "Spyder",
-    "color": "grey",
-    "vin": "G2BNXD6DLZPX75161"
+    "make": "Skoda",
+    "model": "F-150",
+    "color": "fuchsia",
+    "vin": "S5L1WLGN9KXC65347"
   },
   {
-    "license_plate_number": "ADR0099",
+    "license_plate_number": "ADU0099",
     "license_plate_state": "WV",
-    "year": "2024",
-    "make": "Fiat",
-    "model": "Corvette",
-    "color": "gold",
-    "vin": "90DCCLTBR3KM00926"
+    "year": "2023",
+    "make": "Porsche",
+    "model": "XC90",
+    "color": "green",
+    "vin": "BLUJ33GUAMW842794"
   },
   {
-    "license_plate_number": "ADR0100",
+    "license_plate_number": "ADU0100",
     "license_plate_state": "WI",
-    "year": "2023",
-    "make": "Maserati",
-    "model": "Prius",
-    "color": "maroon",
-    "vin": "9BKE4C890YZ229795"
+    "year": "2025",
+    "make": "Citroën",
+    "model": "Wrangler",
+    "color": "lime",
+    "vin": "9BGBG3ZS3JCC25977"
   }
 ]

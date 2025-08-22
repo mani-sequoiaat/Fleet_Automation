@@ -1,37 +1,32 @@
+jest.setTimeout(40000);
+
 const { loadJson, fetchFleetRecordsForbronzeerror } = require('../fleet_test_helpers');
 const { initializeBatchIds, getBatchIds } = require('../batchIdResolver');
-
-jest.setTimeout(40000);
 
 const normalize = val => (val === null || val === undefined ? '' : String(val).trim());
 
 describe('[ SILVER FLEET ERROR TABLE TEST SUITES ]', () => {
   let bronzeBatchId;
-  let errorExpectedJson;
-  let dbRecords;
+  let errorExpectedJson = [];
+  let dbRecords = [];
 
   beforeAll(async () => {
     await initializeBatchIds();
     bronzeBatchId = getBatchIds().bronzeBatchId;
-    errorExpectedJson = loadJson('error_records.json');
 
     if (!bronzeBatchId) throw new Error('No error batch ID found');
-    dbRecords = await fetchFleetRecordsForbronzeerror(bronzeBatchId);
 
-    if (!dbRecords.length) {
-      console.warn('⚠️ No silver fleet error records found for this batch');
-    } else {
-      console.log(`✅ ${dbRecords.length} silver fleet error records found`);
-    }
+    errorExpectedJson = loadJson('error_records.json') || [];
+
+    dbRecords = await fetchFleetRecordsForbronzeerror(bronzeBatchId) || [];
+    if (!Array.isArray(dbRecords)) throw new Error('fetchFleetRecordsForbronzeerror did not return an array');
   });
 
-  // Test 1: Record count matches expected JSON
-  it('Error records count matches expected JSON', () => {
+  it('1040: Verify Error records count ', () => {
     expect(dbRecords.length).toBe(errorExpectedJson.length);
   });
 
-  // Test 2: All expected error records exist in DB
-  it('All expected error records exist in s_fleet_error table', () => {
+  it('1040 & 1041: All expected error records exist in s_fleet_error table', () => {
     errorExpectedJson.forEach(expected => {
       const match = dbRecords.find(r =>
         normalize(r.brand) === normalize(expected.brand) &&
@@ -55,9 +50,6 @@ describe('[ SILVER FLEET ERROR TABLE TEST SUITES ]', () => {
         normalize(r.vehicle_erac) === normalize(expected.vehicle_erac)
       );
 
-      if (!match) {
-        console.error('⚠️ No match found for expected error record:', expected);
-      }
       expect(match).toBeDefined();
     });
   });

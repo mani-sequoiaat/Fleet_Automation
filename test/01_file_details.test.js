@@ -7,25 +7,31 @@ describe('[ FILE DETAILS TABLE TEST SUITES ]', () => {
 
   beforeAll(async () => {
     const result = await fetchLatestFleetFile();
-    if (!Array.isArray(result)) throw new Error('fetchLatestFleetFile did not return an array');
-    if (!result.length) throw new Error('No em-fleet file found in file_details.');
+
+    if (!Array.isArray(result)) {
+      throw new Error('fetchLatestFleetFile did not return an array');
+    }
+
+    if (!result.length) {
+      throw new Error('No em-fleet file found in file_details.');
+    }
+
     latestFile = result[0];
+    console.log('Latest em-fleet file fetched successfully.');
   }, 20000);
 
-  it('Should fetch an array of results', () => {
-    expect(Array.isArray([latestFile])).toBe(true);
+  it('1235: Verify the latest file_id for fleet file', () => {
+    expect(latestFile).toBeDefined();
+    expect(typeof latestFile).toBe('object');
   });
 
-  it('Should have a valid filename starting with "em-fleet-"', () => {
-    expect(latestFile).toHaveProperty('filename');
+  it('1235: Verify the latest fleet file for em', () => {
+    expect(latestFile.filename).toBeDefined();
     expect(latestFile.filename).toMatch(/^em-fleet-/i);
   });
 
-  it('Filepath should contain "fleet-container"', () => {
-    if (!latestFile.filepath || !latestFile.filepath.toLowerCase().includes('fleet-container')) {
-      throw new Error(`❌ Filepath is invalid: ${latestFile.filepath}`);
-    } else {
-      console.log(`✅ Filepath is valid: ${latestFile.filepath}`);
-    }
+  it('3355: Filepath should contain "fleet-container"', () => {
+    expect(latestFile.filepath).toBeDefined();
+    expect(latestFile.filepath.toLowerCase()).toContain('fleet-container');
   });
 });
