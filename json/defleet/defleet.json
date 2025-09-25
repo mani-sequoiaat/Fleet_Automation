@@ -1,0 +1,83 @@
+[
+  {
+    "license_plate_number": "AEZ012#",
+    "license_plate_state": "NH",
+    "year": "2026",
+    "make": "BYD",
+    "model": "F-150",
+    "color": "lavender",
+    "vin": "22WL1MK4VACX57039"
+  },
+  {
+    "license_plate_number": "AEZ013@",
+    "license_plate_state": "NJ",
+    "year": "2026",
+    "make": "Mitsubishi",
+    "model": "Accord",
+    "color": "ivory",
+    "vin": "2PSJTG8D42XE29147"
+  },
+  {
+    "license_plate_number": "AEZ013!",
+    "license_plate_state": "NM",
+    "year": "2024",
+    "make": "Kia",
+    "model": "Malibu",
+    "color": "salmon",
+    "vin": "0U09JJ7TKVGA23432"
+  },
+  {
+    "license_plate_number": "AEZ013`",
+    "license_plate_state": "NY",
+    "year": "2025",
+    "make": "MG",
+    "model": "XTS",
+    "color": "orchid",
+    "vin": "G1PXGNPLYVHX73681"
+  },
+  {
+    "license_plate_number": "AEZ013~",
+    "license_plate_state": "NC",
+    "year": "2023",
+    "make": "Volkswagen",
+    "model": "Golf",
+    "color": "blue",
+    "vin": "09B648WLXJP953777"
+  },
+  {
+    "license_plate_number": "AEZ0134",
+    "license_plate_state": "ND",
+    "year": "2024",
+    "make": "NIO",
+    "model": "PT Cruiser",
+    "color": "plum",
+    "vin": "MGCUHGMS70D718472"
+  },
+  {
+    "license_plate_number": "AEZ0136",
+    "license_plate_state": "OK",
+    "year": "2026",
+    "make": "Maserati",
+    "model": "Jetta",
+    "color": "teal",
+    "vin": "7ESHRXHP39VB76164"
+  },
+  {
+    "license_plate_number": "AEZ0137",
+    "license_plate_state": "OR",
+    "year": "2025",
+    "make": "NIO",
+    "model": "Camry",
+    "color": "grey",
+    "vin": "VUJYX147WVGE34341"
+  },
+  {
+    "license_plate_number": "AEZ0138",
+    "license_plate_state": "PA",
+    "year": "2025",
+    "make": "Audi",
+    "model": "Mustang",
+    "color": "pink",
+    "vin": "FK0XSPVK1CMT01208"
+  }
+]

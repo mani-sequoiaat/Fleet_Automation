@@ -10,13 +10,14 @@ const username = process.env.AZURE_PG_USERNAME;
 
 let sharedClient = null;
 
-async function getClient() {
+async function getClient({ databaseName }) {
   if (sharedClient) return sharedClient;
 
   const tokenResponse = await credential.getToken("https://ossrdbms-aad.database.windows.net");
+
   sharedClient = new Client({
     host: server,
-    database: database,
+    database: databaseName,
     user: username,
     password: tokenResponse.token,
     port: 5432,
