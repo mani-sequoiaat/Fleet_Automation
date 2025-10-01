@@ -7,11 +7,7 @@ jest.setTimeout(40000);
 
 const normalize = val => (val === null || val === undefined ? '' : String(val).trim().toLowerCase());
 
-/**
- * Load JSON file from a subfolder under 'json'
- * @param {string} folderName
- * @param {string} fileName
- */
+
 function loadJson(folderName, fileName) {
   const filePath = path.join(__dirname, '..', 'json', folderName, fileName);
   if (!fs.existsSync(filePath)) {

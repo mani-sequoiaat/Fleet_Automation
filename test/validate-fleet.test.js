@@ -110,25 +110,38 @@ describe('[ FLEET TABLE DEREGISTRATION RECORDS TEST SUITES ]', () => {
     expect(fleetQueryRecords.length).toBe(deltaQueryRecords.length);
   });
 
-  it('3378: Verify LPN + LPS combinations match between fleet and s_fleet_delta', () => {
-    if (skipDeregistrationTests) {
-      expect(true).toBe(true);
-      return;
-    }
+  it('3378: Verify LPN + LPS combinations match exactly between fleet and s_fleet_delta', () => {
+  if (skipDeregistrationTests) {
+    expect(true).toBe(true);
+    return;
+  }
 
-    const fleetKeys = fleetQueryRecords.map(
-      r => `${normalize(r.license_plate_number)}_${normalize(r.license_plate_state)}`
-    );
-    const deltaKeys = deltaQueryRecords.map(
-      r => `${normalize(r.license_plate_number)}_${normalize(r.license_plate_state)}`
-    );
+  // Extract only LPN + LPS keys
+  const fleetKeys = fleetQueryRecords.map(
+    r => `${normalize(r.license_plate_number)}_${normalize(r.license_plate_state)}`
+  );
+  const deltaKeys = deltaQueryRecords.map(
+    r => `${normalize(r.license_plate_number)}_${normalize(r.license_plate_state)}`
+  );
 
-    const missingInDelta = fleetKeys.filter(k => !deltaKeys.includes(k));
-    const missingInFleet = deltaKeys.filter(k => !fleetKeys.includes(k));
+  // Unique sets (ignore duplicates)
+  const fleetSet = new Set(fleetKeys);
+  const deltaSet = new Set(deltaKeys);
 
-    expect(missingInDelta.length).toBe(0, `Missing in delta: ${missingInDelta.join(', ')}`);
-    expect(missingInFleet.length).toBe(0, `Missing in fleet: ${missingInFleet.join(', ')}`);
-  });
+  // Differences
+  const missingInDelta = [...fleetSet].filter(k => !deltaSet.has(k));
+  const missingInFleet = [...deltaSet].filter(k => !fleetSet.has(k));
+
+  // Fail if any difference
+  expect(missingInDelta.length).toBe(
+    0,
+    `These LPN+LPS exist in fleet but not in s_fleet_delta`
+  );
+  expect(missingInFleet.length).toBe(
+    0,
+    `These LPN+LPS exist in s_fleet_delta but not in fleet`
+  );
+});
 
   it('3379: Verify no null or empty LPN/LPS in fleet table results', () => {
     if (skipDeregistrationTests) {
